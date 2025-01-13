@@ -1,5 +1,6 @@
 import 'package:azkar/core/widgets/animated_snackbar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 enum SnackBarType { error, success, warning, info }
 
@@ -21,7 +22,10 @@ void showAnimatedSnackBar({
   VoidCallback? onPressedAction,
   IconData? icon,
 }) {
-  final snackBarTheme = Theme.of(context).snackBarTheme;
+  final snackBarTheme = SnackBarThemeData(
+    contentTextStyle: TextStyle(color: Colors.white, fontSize: 14.sp),
+    showCloseIcon: true,
+  );
 
   hideMessage(context);
 
@@ -29,7 +33,7 @@ void showAnimatedSnackBar({
   _currentOverlayEntry = OverlayEntry(
     builder: (context) {
       return Positioned(
-        bottom: 70,
+        bottom: 10,
         left: 16,
         right: 16,
         child: AnimatedSnackBar(
@@ -50,7 +54,7 @@ void showAnimatedSnackBar({
 
   // Automatically remove the overlay after a delay 3 seconds
   Future.delayed(
-    const Duration(seconds: 2),
+    const Duration(seconds: 5),
     () {
       _currentOverlayEntry?.remove();
       _currentOverlayEntry = null;
