@@ -11,34 +11,6 @@ class AwesomeNotificationManager {
       'resource://drawable/quran',
       [
         NotificationChannel(
-          channelKey: "basic_prayer_time_channel",
-          channelName: 'basic prayer time notifications',
-          channelDescription:
-              'Notification channel for basic prayer time tests',
-          importance: NotificationImportance.Max,
-          channelShowBadge: true,
-          groupAlertBehavior: GroupAlertBehavior.Children,
-          enableLights: true,
-          enableVibration: true,
-          defaultPrivacy: NotificationPrivacy.Public,
-          playSound: true,
-          soundSource: 'resource://raw/adan',
-        ),
-        NotificationChannel(
-          channelKey: "reminder_prayer_time_channel",
-          channelName: 'reminder prayer time notifications',
-          channelDescription:
-              'Notification channel for reminder prayer time tests',
-          importance: NotificationImportance.Max,
-          groupAlertBehavior: GroupAlertBehavior.Children,
-          enableLights: true,
-          enableVibration: true,
-          defaultPrivacy: NotificationPrivacy.Public,
-          onlyAlertOnce: true,
-          playSound: true,
-          soundSource: 'resource://raw/reminder',
-        ),
-        NotificationChannel(
           channelKey: "schedule_azkar_channel",
           channelName: 'schedule notifications',
           channelDescription: 'Notification channel for schedule tests',
@@ -77,58 +49,6 @@ class AwesomeNotificationManager {
       minute: selectedMinute,
       second: 0,
       repeats: isRepeating,
-      timeZone: await AwesomeNotifications().getLocalTimeZoneIdentifier(),
-    );
-
-    await AwesomeNotifications().createNotification(
-      content: notificationContent,
-      schedule: schedule,
-    );
-  }
-
-  static Future<void> reminderPrayerTimeNotification({
-    required int id,
-    required String title,
-    required String body,
-    required DateTime selectedTime,
-  }) async {
-    final notificationContent = NotificationContent(
-      id: id,
-      channelKey: "reminder_prayer_time_channel",
-      title: title,
-      body: body,
-    );
-    final schedule = NotificationCalendar(
-      hour: selectedTime.hour,
-      minute: selectedTime.minute - 5,
-      second: selectedTime.second,
-      repeats: true,
-      timeZone: await AwesomeNotifications().getLocalTimeZoneIdentifier(),
-    );
-
-    await AwesomeNotifications().createNotification(
-      content: notificationContent,
-      schedule: schedule,
-    );
-  }
-
-  static Future<void> basicePrayerTimeNotification({
-    required int id,
-    required String title,
-    required String body,
-    required DateTime selectedTime,
-  }) async {
-    final notificationContent = NotificationContent(
-      id: id,
-      channelKey: "basic_prayer_time_channel",
-      title: title,
-      body: body,
-    );
-    final schedule = NotificationCalendar(
-      hour: selectedTime.hour,
-      minute: selectedTime.minute,
-      second: selectedTime.second,
-      repeats: true,
       timeZone: await AwesomeNotifications().getLocalTimeZoneIdentifier(),
     );
 
