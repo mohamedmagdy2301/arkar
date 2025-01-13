@@ -1,0 +1,57 @@
+name: azkar
+description: "is a comprehensive Flutter-based application designed to enhance the spiritual experience of users by providing features such as prayer times, azkar, and a user-friendly interface. With a focus on usability and aesthetics, Azkary integrates customizable themes and notification settings to offer a personalized experience for all users."
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.6.0
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.6
+  flutter_screenutil: ^5.9.3
+  flutter_bloc: ^9.0.0
+  shared_preferences: ^2.3.2
+  awesome_notifications: ^0.10.0
+  flutter_localizations:
+    sdk: flutter
+  adhan: ^2.0.0+1
+  intl: ^0.19.0
+  http: ^1.2.2
+  equatable: ^2.0.5
+  dio: ^5.7.0
+  persistent_bottom_nav_bar: ^6.2.1
+  flutter_native_splash: ^2.4.1
+  geolocator: ^13.0.1
+  geocoding: ^3.0.0
+  awesome_notifications_core: ^0.10.0
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^5.0.0
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+
+  fonts:
+    - family: Amiri
+      fonts:
+        - asset: assets/fonts/Amiri/Amiri-Regular.ttf
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins/Poppins-Regular.ttf
+    - family: Cairo
+      fonts:
+        - asset: assets/fonts/Cairo-Regular.ttf  
+
