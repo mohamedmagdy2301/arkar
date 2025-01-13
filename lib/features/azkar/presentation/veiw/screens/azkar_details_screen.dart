@@ -2,6 +2,7 @@ import 'package:azkar/core/theming/cubit_cahnge_themeing.dart';
 import 'package:azkar/features/azkar/data/azkar_data.dart';
 import 'package:azkar/features/azkar/data/azkar_screen_body_item_model_data.dart';
 import 'package:azkar/features/azkar/presentation/veiw/widgets/azkar_details_liseview_item_card.dart';
+import 'package:azkar/features/azkar/presentation/veiw/widgets/clear_count_azkar.dart';
 import 'package:azkar/features/azkar/presentation/veiw/widgets/custom_icon_bell.dart';
 import 'package:azkar/features/azkar/presentation/veiw/widgets/custom_notification_settings.dart';
 import 'package:azkar/features/azkar/presentation/view_model/notification_manager/azkar_notification_cubit.dart';
@@ -45,27 +46,29 @@ class _AzkarDetailsScreenState extends State<AzkarDetailsScreen> {
         builder: (context, notificationState) {
           final azkarNotificationCubit = context.read<AzkarNotificationCubit>();
 
-          return Scaffold(
-            appBar: AppBar(
-              title: Text(widget.azkarScreenBodyItemModel.title),
-              centerTitle: true,
-              elevation: 0,
-              backgroundColor: isLightTheme ? colorAppbar : Colors.transparent,
-              surfaceTintColor: Colors.transparent,
-              actions: [
-                IconButton(
-                  onPressed: () {
-                    azkarNotificationCubit.viewSettingsNotification(context);
-                  },
-                  icon: CustomIconBell(
-                    azkarNotificationCubit: azkarNotificationCubit,
-                  ),
+          return BlocBuilder<AzkarDetailsCubit, AzkarDetailsState>(
+            builder: (context, state) {
+              return Scaffold(
+                appBar: AppBar(
+                  title: Text(widget.azkarScreenBodyItemModel.title),
+                  elevation: 0,
+                  backgroundColor:
+                      isLightTheme ? colorAppbar : Colors.transparent,
+                  surfaceTintColor: Colors.transparent,
+                  actions: [
+                    ClearCountAzkarWidget(state: state),
+                    IconButton(
+                      onPressed: () {
+                        azkarNotificationCubit
+                            .viewSettingsNotification(context);
+                      },
+                      icon: CustomIconBell(
+                        azkarNotificationCubit: azkarNotificationCubit,
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
-            body: BlocBuilder<AzkarDetailsCubit, AzkarDetailsState>(
-              builder: (context, state) {
-                return Column(
+                body: Column(
                   children: [
                     if (azkarNotificationCubit.isViewNotification)
                       CustomNotificationSettings(
@@ -90,9 +93,9 @@ class _AzkarDetailsScreenState extends State<AzkarDetailsScreen> {
                       ),
                     ),
                   ],
-                );
-              },
-            ),
+                ),
+              );
+            },
           );
         },
       ),
