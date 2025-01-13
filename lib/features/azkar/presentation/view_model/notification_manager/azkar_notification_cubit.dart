@@ -3,6 +3,7 @@
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:azkar/core/local_storage/shared_preferences_manager.dart';
 import 'package:azkar/core/notification_helper/awesome_notification_manager.dart';
+import 'package:azkar/core/widgets/snackbar_helper.dart';
 import 'package:azkar/features/azkar/data/azkar_screen_body_item_model_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -62,16 +63,10 @@ class AzkarNotificationCubit extends Cubit<AzkarNotificationState> {
       saveSwitchIsEnableNotification(isSwitchEnable);
       textButton = timeOfDay0.format(context).toString();
       saveTextButtonNotification(textButton);
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          backgroundColor: Colors.green,
-          content: Center(
-            child: Text(
-              'تم تفعيل اشعارات ${azkarScreenBodyItemModel.title}',
-              style: const TextStyle(color: Colors.white),
-            ),
-          ),
-        ),
+      showMessage(
+        context,
+        type: SnackBarType.success,
+        message: 'تم تفعيل اشعارات ${azkarScreenBodyItemModel.title}',
       );
 
       emit(
@@ -81,17 +76,13 @@ class AzkarNotificationCubit extends Cubit<AzkarNotificationState> {
         ),
       );
     } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          backgroundColor: Colors.red,
-          content: Center(
-            child: Text(
-              'الوقت غير صالح لتفعيل الاشعارات\nالرجاء اختيار موعد فى المستقبل',
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
-        ),
+      showMessage(
+        context,
+        type: SnackBarType.error,
+        message:
+            'الوقت غير صالح لتفعيل الاشعارات\nالرجاء اختيار موعد فى المستقبل',
       );
+
       emit(
         HasAzkarNotification(
           isSwitchEnable: isSwitchEnable,

@@ -30,8 +30,7 @@ dependencies:
   geocoding: ^3.0.0
   awesome_notifications_core: ^0.10.0
 
-
-dev_dependencies:
+dev_dependencies: 
   flutter_test:
     sdk: flutter
 

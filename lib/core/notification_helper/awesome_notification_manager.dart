@@ -15,7 +15,7 @@ class AwesomeNotificationManager {
           channelName: 'schedule notifications',
           channelDescription: 'Notification channel for schedule tests',
           importance: NotificationImportance.Max,
-          channelShowBadge: true,
+          channelShowBadge: false,
           groupAlertBehavior: GroupAlertBehavior.Children,
           enableLights: true,
           enableVibration: true,

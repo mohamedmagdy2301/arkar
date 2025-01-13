@@ -1,4 +1,5 @@
 import 'package:azkar/core/theming/cubit_cahnge_themeing.dart';
+import 'package:azkar/core/widgets/snackbar_helper.dart';
 import 'package:azkar/features/azkar/presentation/view_model/notification_manager/azkar_notification_cubit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -70,26 +71,18 @@ class CustomNotificationSettings extends StatelessWidget {
                 onChanged: (value) {
                   if (azkarNotificationCubit.isSwitchEnable) {
                     azkarNotificationCubit.cancelNotification();
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Center(
-                          child: Text(
-                            'تم الغاء تفعيل اشعارات ${azkarNotificationCubit.azkarScreenBodyItemModel.title}',
-                          ),
-                        ),
-                      ),
+                    showMessage(
+                      context,
+                      type: SnackBarType.warning,
+                      message:
+                          'تم الغاء تفعيل اشعارات ${azkarNotificationCubit.azkarScreenBodyItemModel.title}',
                     );
                   } else {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        backgroundColor: Colors.red,
-                        content: Center(
-                          child: Text(
-                            'اختار الوقت الذي تريد تفعيل اشعارات ${azkarNotificationCubit.azkarScreenBodyItemModel.title}',
-                            style: const TextStyle(color: Colors.white),
-                          ),
-                        ),
-                      ),
+                    showMessage(
+                      context,
+                      type: SnackBarType.error,
+                      message:
+                          'اختار الوقت الذي تريد تفعيل اشعارات ${azkarNotificationCubit.azkarScreenBodyItemModel.title}',
                     );
                   }
                 },
