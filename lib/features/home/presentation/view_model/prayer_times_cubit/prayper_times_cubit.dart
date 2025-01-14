@@ -2,6 +2,7 @@ import 'dart:async'; // Import the async package
 
 import 'package:azkar/features/home/data/repo/prayer_time_repo_impl.dart';
 import 'package:azkar/features/home/domain/prayer_times_entity.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
@@ -21,6 +22,13 @@ class PrayerTimesCubit extends Cubit<PrayerTimesState> {
   Future<void> fetchPrayerTimes() async {
     emit(PrayerTimesLoading());
     try {
+      // Check internet connectivity
+      final isConnected = await _checkInternetConnection();
+      if (!isConnected) {
+        emit(PrayerTimesError("لا يوجد اتصال بالانترنت"));
+      }
+
+      // Get user location and fetch prayer times
       final position = await _determinePosition();
       final locationName = await _getLocationName(position);
 
@@ -30,6 +38,11 @@ class PrayerTimesCubit extends Cubit<PrayerTimesState> {
     } catch (e) {
       emit(PrayerTimesError(e.toString()));
     }
+  }
+
+  Future<bool> _checkInternetConnection() async {
+    final connectivityResult = await Connectivity().checkConnectivity();
+    return connectivityResult != ConnectivityResult.none;
   }
 
   void _scheduleDailyFetch() {

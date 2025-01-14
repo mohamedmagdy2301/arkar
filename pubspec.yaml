@@ -29,6 +29,8 @@ dependencies:
   geolocator: ^13.0.1
   geocoding: ^3.0.0
   awesome_notifications_core: ^0.10.0
+  connectivity_plus: ^6.1.1
+  permission_handler: ^11.3.1
 
 dev_dependencies: 
   flutter_test:

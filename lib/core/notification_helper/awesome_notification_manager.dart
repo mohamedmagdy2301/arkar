@@ -4,11 +4,12 @@ import 'package:azkar/features/azkar/presentation/veiw/screens/azkar_details_scr
 import 'package:azkar/features/home/presentation/view/screens/home_screen.dart';
 import 'package:azkar/main.dart';
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class AwesomeNotificationManager {
   static Future<void> initialize() async {
     await AwesomeNotifications().initialize(
-      'resource://drawable/quran',
+      'resource://drawable/quran2',
       [
         NotificationChannel(
           channelKey: "schedule_azkar_channel",
@@ -22,12 +23,18 @@ class AwesomeNotificationManager {
           defaultPrivacy: NotificationPrivacy.Public,
           onlyAlertOnce: true,
           playSound: true,
-          soundSource: 'resource://raw/sound_test',
+          // soundSource: 'resource://raw/adan',
         ),
       ],
     );
-    AwesomeNotifications().requestPermissionToSendNotifications();
+    await requestNotificationPermission();
     onActionReceived();
+  }
+
+  static Future<void> requestNotificationPermission() async {
+    if (await Permission.notification.isDenied) {
+      await Permission.notification.request();
+    }
   }
 
   static Future<void> scheduleAzkarNotification({
@@ -43,6 +50,8 @@ class AwesomeNotificationManager {
       channelKey: "schedule_azkar_channel",
       title: title,
       body: body,
+      icon: 'resource://drawable/quran2',
+      notificationLayout: NotificationLayout.Default,
     );
     final schedule = NotificationCalendar(
       hour: selectedHour,
