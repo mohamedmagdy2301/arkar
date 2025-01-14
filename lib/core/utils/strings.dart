@@ -1,5 +1,5 @@
 class StringsAppAR {
-  static const String appName = "اذكارى";
+  static const String appName = "فَاذْكُرُونِي أَذْكُرْكُمْ";
 
   static const String home = "الرئيسية";
   static const String azkar = "اذكار";

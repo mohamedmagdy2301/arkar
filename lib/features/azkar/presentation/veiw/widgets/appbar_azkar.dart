@@ -9,19 +9,20 @@ class AppBarAzkar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       title: Text(
-        StringsAppAR.alAzkar,
+        StringsAppAR.appName,
         style: TextStyle(
-          fontSize: 36.sp,
-          fontWeight: FontWeight.w400,
+          fontSize: 32.sp,
+          fontWeight: FontWeight.w800,
+          fontFamily: "Amiri",
         ),
       ),
       centerTitle: true,
       flexibleSpace: Container(),
       elevation: 0,
-      toolbarHeight: 60.h,
+      toolbarHeight: 90.h,
     );
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(60.h);
+  Size get preferredSize => Size.fromHeight(90.h);
 }

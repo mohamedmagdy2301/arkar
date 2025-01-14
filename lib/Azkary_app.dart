@@ -29,8 +29,8 @@ class _MainScaffoldState extends State<MainScaffold> {
 
   List<Widget> _buildScreens() {
     return [
-      const HomeScreen(),
       const AzkarScreen(),
+      const HomeScreen(),
       const SabhaScreen(),
       const SettingsScreen(),
     ];
@@ -38,21 +38,6 @@ class _MainScaffoldState extends State<MainScaffold> {
 
   List<PersistentBottomNavBarItem> _navBarsItems() {
     return [
-      PersistentBottomNavBarItem(
-        icon: Image.asset(
-          'assets/images/crescent2.png',
-          height: 30,
-          width: 30,
-        ),
-        inactiveIcon: Image.asset(
-          'assets/images/crescent.png',
-          height: 30,
-          width: 30,
-        ),
-        title: (" "),
-        activeColorPrimary: ColorsAppLight.primaryColor,
-        inactiveColorPrimary: Colors.grey,
-      ),
       PersistentBottomNavBarItem(
         icon: Image.asset(
           'assets/images/praying2.png',
@@ -63,6 +48,21 @@ class _MainScaffoldState extends State<MainScaffold> {
           'assets/images/praying.png',
           height: 35,
           width: 35,
+        ),
+        title: (" "),
+        activeColorPrimary: ColorsAppLight.primaryColor,
+        inactiveColorPrimary: Colors.grey,
+      ),
+      PersistentBottomNavBarItem(
+        icon: Image.asset(
+          'assets/images/crescent2.png',
+          height: 30,
+          width: 30,
+        ),
+        inactiveIcon: Image.asset(
+          'assets/images/crescent.png',
+          height: 30,
+          width: 30,
         ),
         title: (" "),
         activeColorPrimary: ColorsAppLight.primaryColor,

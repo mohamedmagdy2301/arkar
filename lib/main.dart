@@ -86,7 +86,6 @@ class _MyAppState extends State<MyApp> {
   }
 
   Map<String, WidgetBuilder> get routes => {
-        // '/': (context) => const SplashScreen(),
         '/': (context) => const MainScaffold(),
         HomeScreen.routeName: (context) => const HomeScreen(),
         SettingsScreen.routeName: (context) => const SettingsScreen(),
