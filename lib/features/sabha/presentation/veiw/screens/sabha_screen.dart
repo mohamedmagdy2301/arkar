@@ -24,7 +24,6 @@ class _SabhaScreenState extends State<SabhaScreen> {
     "سبحان الله وبحمده",
     "سبحان الله العظيم",
     "أستغفر الله",
-    "اللهم صل وسلم على نبينا محمد",
   ];
 
   void incrementCounter() {

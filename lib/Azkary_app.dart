@@ -30,7 +30,7 @@ class _MainScaffoldState extends State<MainScaffold> {
   List<Widget> _buildScreens() {
     return [
       const AzkarScreen(),
-      const HomeScreen(),
+      HomeScreen(),
       const SabhaScreen(),
       const SettingsScreen(),
     ];
@@ -42,6 +42,7 @@ class _MainScaffoldState extends State<MainScaffold> {
         icon: Image.asset(
           'assets/images/praying2.png',
           height: 35,
+          color: ColorsAppLight.primaryColor,
           width: 35,
         ),
         inactiveIcon: Image.asset(
@@ -57,6 +58,7 @@ class _MainScaffoldState extends State<MainScaffold> {
         icon: Image.asset(
           'assets/images/crescent2.png',
           height: 30,
+          color: ColorsAppLight.primaryColor,
           width: 30,
         ),
         inactiveIcon: Image.asset(
@@ -72,6 +74,7 @@ class _MainScaffoldState extends State<MainScaffold> {
         icon: Image.asset(
           "assets/images/prayer-beads.png",
           height: 35,
+          color: ColorsAppLight.primaryColor,
           width: 35,
         ),
         inactiveIcon: Image.asset(
@@ -87,6 +90,7 @@ class _MainScaffoldState extends State<MainScaffold> {
         icon: Image.asset(
           'assets/images/setting-bulb2.png',
           height: 30,
+          color: ColorsAppLight.primaryColor,
           width: 30,
         ),
         inactiveIcon: Image.asset(

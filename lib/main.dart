@@ -87,7 +87,7 @@ class _MyAppState extends State<MyApp> {
 
   Map<String, WidgetBuilder> get routes => {
         '/': (context) => const MainScaffold(),
-        HomeScreen.routeName: (context) => const HomeScreen(),
+        HomeScreen.routeName: (context) => HomeScreen(),
         SettingsScreen.routeName: (context) => const SettingsScreen(),
         AzkarScreen.routeName: (context) => const AzkarScreen(),
         SabhaScreen.routeName: (context) => const SabhaScreen(),

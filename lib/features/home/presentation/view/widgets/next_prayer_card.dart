@@ -24,12 +24,12 @@ class NextPrayerCard extends StatelessWidget {
           return Container(
             height: 140.h,
             width: double.infinity,
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  Color.fromARGB(255, 193, 231, 98),
-                  ColorsAppLight.primaryColor,
-                  Color.fromARGB(255, 107, 131, 49),
+                  ColorsAppLight.primaryColor.withAlpha(150),
+                  ColorsAppLight.primaryColor.withAlpha(200),
+                  ColorsAppLight.primaryColor.withAlpha(250),
                 ],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,

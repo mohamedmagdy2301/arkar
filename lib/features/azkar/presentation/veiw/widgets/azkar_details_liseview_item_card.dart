@@ -56,18 +56,15 @@ class AzkarDetailsLiseviewItemCard extends StatelessWidget {
                     Text(
                       "الذكر ${index + 1}",
                       style: TextStyle(
-                          fontSize: 18.sp,
-                          fontWeight: FontWeight.bold,
-                          color: isLightTheme
-                              ? ColorsAppLight.primaryColor
-                              : const Color.fromARGB(255, 156, 214, 9)),
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.bold,
+                        color: ColorsAppLight.primaryColor,
+                      ),
                     ),
                     counter == (int.parse(dataList?[index]["count"] ?? "0"))
                         ? Icon(
                             Icons.check_circle_outline,
-                            color: isLightTheme
-                                ? ColorsAppLight.primaryColor
-                                : const Color.fromARGB(255, 156, 214, 9),
+                            color: ColorsAppLight.primaryColor,
                           )
                         : Text(
                             "التكرار : $counter / ${dataList?[index]["count"]}",

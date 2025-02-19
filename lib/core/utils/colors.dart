@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 class ColorsAppLight {
-  static const Color primaryColor = Color.fromARGB(255, 136, 165, 62);
+  static const Color primaryColor = Color.fromARGB(255, 162, 144, 78);
 }
 
 class ColorsAppDark {

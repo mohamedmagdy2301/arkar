@@ -93,7 +93,7 @@ class AwesomeNotificationManager {
                   azkarScreenBodyItemModel[receivedAction.id!],
             );
           }
-          return const HomeScreen();
+          return HomeScreen();
         },
       ),
       (route) => false,

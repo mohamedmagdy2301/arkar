@@ -23,7 +23,7 @@ class SabhaScreenBodyCircle extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: const Color.fromARGB(141, 98, 131, 8),
+            color: ColorsAppLight.primaryColor.withAlpha(200),
             blurRadius: 12,
             spreadRadius: 8,
           ),
